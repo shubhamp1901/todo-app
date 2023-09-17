@@ -1,23 +1,18 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import TodoInput from './components/TodoInput';
+import TodoList from './components/TodoList';
 
 function App() {
+
+  const [inputText, setInputText] = useState("");
+  const [toggleSubmit, setToggleSubmit] = useState(false)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="w-1/2 m-auto my-5">
+      <h1 className='text-2xl flex justify-center'>📝 Todo App</h1>
+      <TodoInput inputText={inputText} setInputText={setInputText} toggleSubmit={toggleSubmit} setToggleSubmit={setToggleSubmit} />
+      <TodoList inputText={inputText} setInputText={setInputText} toggleSubmit={toggleSubmit} setToggleSubmit={setToggleSubmit} />
     </div>
   );
 }
